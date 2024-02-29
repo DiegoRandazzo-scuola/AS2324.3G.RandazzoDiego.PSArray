@@ -57,7 +57,6 @@
         {
             double num=0;
             double somma = 0;
-            int conta = 1;
             for(int i=0; i<voti.Length; i++)
             {
                 num += voti[i] * pesi[i];
@@ -65,14 +64,14 @@
                 if (voti[i] > max)
                 {
                     max= voti[i];
-                    posmax = conta;
+                    posmax = i;
                 }
                 if (voti[i] < min)
                 {
-                    min= voti[i];
-                    posmin = conta;
+                    min = voti[i];
+                    posmin = i;
                 }
-                conta++;
+                
             }
             double mediaP = num / somma;
             return mediaP;
