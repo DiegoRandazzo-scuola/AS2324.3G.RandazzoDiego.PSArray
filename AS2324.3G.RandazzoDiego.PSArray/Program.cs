@@ -9,6 +9,8 @@
             int dim=Convert.ToInt32(Console.ReadLine());
             double[] voti = new double[dim];
             int[] peso = new int[dim];
+            CaricaVettori(ref voti, ref peso);
+            StampaVotiPesi(ref voti, ref peso);
         }
         static void CaricaVettori(ref double[] voti, ref int[] peso)
         {
@@ -19,6 +21,13 @@
                 peso[i] = random.Next(0, 101);
             }
         }
-        
+        static void StampaVotiPesi(ref double[] voti, ref int[] peso)
+        {
+            for (int i = 0;i < voti.Length; i++)
+            {
+                Console.WriteLine($"il voto {i + 1} è {voti[i]}" );
+                Console.WriteLine($"il peso {i + 1} è {peso[i]}");
+            }
+        }
     }
 }
