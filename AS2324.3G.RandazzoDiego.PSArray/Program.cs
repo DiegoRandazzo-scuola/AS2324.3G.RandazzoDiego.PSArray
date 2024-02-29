@@ -18,6 +18,7 @@
             double mediaP = MediaPonderata; 
             Console.WriteLine($"la media ponderata è {mediaP}");
             Console.WriteLine($"il valore minimo è {min} in posizione {posmin} e il valore più grande è {max} in posizione {posmax}");
+            OrdinaPerVoto(ref voti, ref pesi, nVoti);
         }
         static void CaricaVettori(ref double[] voti, ref int[] peso)
         {
@@ -76,7 +77,19 @@
             double mediaP = num / somma;
             return mediaP;
             StampaVotiPesi(ref voti, ref pesi);
-            
+        }
+        static void OrdinaPerVoto(ref double[] voti, ref int[] pesi, int nVoti)
+        {
+            for (int i = 0; i < voti.Length - 1; i++)
+            {
+                for (int j = 0; j < voti.Length - i - 1; j++)
+                {
+                    double temp = voti[j];
+                    voti[j] = voti[j + 1];
+                    voti[j + 1] = temp;
+                }
+            }
+            StampaVotiPesi(ref voti, ref pesi);
         }
     }
 }
