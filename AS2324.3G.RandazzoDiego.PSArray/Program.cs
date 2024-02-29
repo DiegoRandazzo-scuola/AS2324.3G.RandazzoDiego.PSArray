@@ -9,8 +9,8 @@
             int nVoti=Convert.ToInt32(Console.ReadLine());
             double[] voti = new double[nVoti];
             int[] pesi = new int[nVoti];
-            double max = 0, min = 11;
-            int posmax=0, posmin=0;
+            double max = 0, min = 11, voto;
+            int posmax = 0, posmin = 0;
             CaricaVettori(ref voti, ref pesi);
             StampaVotiPesi(ref voti, ref pesi);
             StampaVotiDispariMaggioriDi4(ref voti, ref pesi);
@@ -19,13 +19,17 @@
             Console.WriteLine($"la media ponderata è {mediaP}");
             Console.WriteLine($"il valore minimo è {min} in posizione {posmin} e il valore più grande è {max} in posizione {posmax}");
             OrdinaPerVoto(ref voti, ref pesi, nVoti);
+            Console.WriteLine(OrdinaPerVoto);
+            Console.WriteLine("inserisci un voto da ricercare");
+            voto=Convert.ToDouble(Console.ReadLine());
+            ElencoVotiNellIntorno(ref voti, ref pesi, ref nVoti, ref voto);
         }
         static void CaricaVettori(ref double[] voti, ref int[] peso)
         {
             Random random = new Random();
             for (int i = 0; i < voti.Length; i++)
             {
-                voti[i] = random.Next(1, 11);
+                voti[i] = random.NextDouble()*10+1;
                 peso[i] = random.Next(0, 101);
             }
         }
@@ -89,6 +93,10 @@
                 }
             }
             StampaVotiPesi(ref voti, ref pesi);
+        }
+        static void ElencoVotiNellIntorno(ref double[] voti, ref int[] pesi, ref int nVoti, ref double voto)
+        {
+            
         }
     }
 }
