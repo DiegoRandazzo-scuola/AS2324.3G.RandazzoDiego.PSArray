@@ -75,6 +75,7 @@
             }
             double mediaP = num / somma;
             return mediaP;
+            StampaVotiPesi(ref voti, ref pesi);
             
         }
     }
