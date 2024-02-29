@@ -11,6 +11,7 @@
             int[] peso = new int[dim];
             CaricaVettori(ref voti, ref peso);
             StampaVotiPesi(ref voti, ref peso);
+            StampaVotiDispariMaggioriDi4(ref voti, ref peso);
         }
         static void CaricaVettori(ref double[] voti, ref int[] peso)
         {
@@ -27,6 +28,16 @@
             {
                 Console.WriteLine($"il voto {i + 1} è {voti[i]}" );
                 Console.WriteLine($"il peso {i + 1} è {peso[i]}");
+            }
+        }
+        static void StampaVotiDispariMaggioriDi4(ref double[] voti, ref int[] peso)
+        {
+            for(int i = 0; i<voti.Length; i+=2)
+            {
+                if(voti[i] > 4)
+                {
+                    StampaVotiPesi(ref voti, ref peso);
+                }
             }
         }
     }
